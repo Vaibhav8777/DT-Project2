@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src = "Controller/App1.js"></script>
+<body ng-app="myApp">
+
+<p><a href="#/">Main</a></p>
+
+<a href="#blog">Blog</a>
+<a href="#forum">Chat</a>
+<a href="#chat">Forum</a>
+
+<div ng-view></div>
+
+
+
+<script type = "text/ng-template" id = "Blog.html">
+            <h2> Blog Page </h2>
+            {{message}}
+         </script>
+</body>
+</html>

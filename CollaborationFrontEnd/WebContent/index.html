@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/">Main</a></p>
+
+<a href="#blog">Blog page</a>
+<a href="#chat">Chat page</a>
+
+<p>Click on the links.</p>
+
+<p>Note that each "view" has its own controller which each gives the "msg" variable a value.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "index.html",
+    })
+    .when("/blog", {
+        templateUrl : "Blog.html",
+        controller : "blogCtrl"
+    })
+    .when("/chat", {
+        templateUrl : "Chat.html",
+        controller : "chatCtrl"
+    });
+});
+ app.controller("blogCtrl", function ($scope) {
+     $scope.msg = "Welcome to My Blog";
+ });
+ app.controller("chatCtrl", function ($scope) {
+     $scope.msg = "Happy Chating";
+ });
+
+</script>
+
+</body>
+</html>
